@@ -17,8 +17,13 @@ def predict():
 		message = request.form['msg']
 		data = [message]
 		prediction=loaded_model.predict(data)[0]
+		
+	if(prediction==0) :
+		Pred="Ham"
+	else :
+		Pred="Spam"
 			
-	return render_template('result11.html', res = prediction)
+	return render_template('result11.html', res = Pred)
 	
 if __name__ == "__main__":
 	app.run(debug = True)
